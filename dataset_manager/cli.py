@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import gc
 import os
 from getpass import getpass

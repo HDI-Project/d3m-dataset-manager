@@ -86,7 +86,7 @@ Download all datasets from D3M and store them as they are into S3 bucket named `
 This will skip existing datasets.
 
 ```
-python dataset_manager/dataset_manager.py -i d3m:a_username:a_password -o s3:d3m-data-dai -a
+python dataset_manager/cli.py -i d3m:a_username:a_password -o s3:d3m-data-dai -a
 ```
 
 Download all datasets from the IPFS mirror, split them and store them in a local folder `datasets`, overwriting
@@ -94,12 +94,12 @@ any existing data.
 This will prompt the user for the d3m password.
 
 ```
-python dataset_manager/dataset_manager.py -i ipfs -o datasets -a -s -f
+python dataset_manager/cli.py -i ipfs -o datasets -a -s -f
 ```
 
 Download the datasets `185_baseball` and `32_wikiqa` from S3 bucket `bucket-name`
 into local folder `data/datasets`. Overwrite the existing data.
 
 ```
-python dataset_manager/dataset_manager.py -i s3://bucket-name -o data/datasets -f 185_baseball 32_wikiqa
+python dataset_manager/cli.py -i s3://bucket-name -o data/datasets -f 185_baseball 32_wikiqa
 ```
