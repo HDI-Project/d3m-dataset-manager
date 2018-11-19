@@ -1,11 +1,30 @@
 # -*- coding: utf-8 -*-
 
 import gc
+import logging
 import os
 from getpass import getpass
 
-from dataset_manager import d3m, local, s3
-from dataset_manager.splitter import add_dataset_splits
+import d3m
+import local
+import s3
+from splitter import add_dataset_splits
+
+LOGGER = logging.getLogger(__name__)
+
+
+def logging_setup(verbosity=1):
+    logger = logging.getLogger()
+    log_level = (3 - verbosity) * 10
+    fmt = '%(levelname)s - %(message)s'
+    formatter = logging.Formatter(fmt)
+    logger.setLevel(log_level)
+    logger.propagate = False
+
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(log_level)
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
 
 
 def parse_s3_path(path):
@@ -43,7 +62,7 @@ def get_input_manager(args):
         return local.LocalManager(args.input, args.skip_sublevels)
 
     else:
-        raise Exception("Invalid Input: {}".format(args.input))
+        raise Exception('Invalid Input: {}'.format(args.input))
 
 
 def get_output_manager(args):
@@ -55,7 +74,7 @@ def get_output_manager(args):
         return local.LocalManager(args.output)
 
     else:
-        raise Exception("Invalid Output: {}".format(args.output))
+        raise Exception('Invalid Output: {}'.format(args.output))
 
 
 def process_dataset(dataset_name, input_manager, output_manager, split, raw):
@@ -71,6 +90,9 @@ if __name__ == '__main__':
     from argparse import ArgumentParser
 
     parser = ArgumentParser(description='D3M dataset manager')
+
+    # Logging
+    parser.add_argument('-v', '--verbose', action='count', default=0)
 
     # Input
     parser.add_argument('-i', '--input', required=True,
@@ -101,6 +123,8 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
+    logging_setup(args.verbose)
+
     input_manager = get_input_manager(args)
 
     if args.list:
@@ -115,19 +139,18 @@ if __name__ == '__main__':
             datasets = args.dataset
 
         if not datasets:
-            print("Please provide at least a dataset name")
+            print('Please provide at least a dataset name')
 
         else:
             output_manager = get_output_manager(args)
             for dataset in datasets:
                 if args.force or not output_manager.exists(dataset):
-                    if args.dry_run:
-                        print("Downloading dataset {}".format(dataset))
-
-                    else:
+                    print('Copying dataset {} from {} to {}'.format(
+                        dataset, args.input, args.output))
+                    if not args.dry_run:
                         process_dataset(
                             dataset, input_manager, output_manager, args.split, args.raw)
                         gc.collect()
 
                 else:
-                    print("Dataset {} already exists. Use --force to overwrite.".format(dataset))
+                    print('Dataset {} already exists. Use --force to overwrite.'.format(dataset))
