@@ -1,9 +1,15 @@
 # -*- coding: utf-8 -*-
 
+import logging
+import json
+import time
+
 import requests
 from bs4 import BeautifulSoup
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
+
+LOGGER = logging.getLogger(__name__)
 
 
 class BaseScraper(object):
@@ -33,7 +39,7 @@ class BaseScraper(object):
         self.sublevels = ['tables/'] if skip_sublevels else []
 
     def get_url(self, url, raw=False):
-        print("Getting URL {}".format(url))
+        LOGGER.info("Getting URL %s", url)
         r = self.session.get(url)
         if raw:
             return r.content

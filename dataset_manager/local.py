@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import logging
 import os
+
+LOGGER = logging.getLogger(__name__)
 
 
 class LocalManager(object):
@@ -26,6 +29,7 @@ class LocalManager(object):
 
     def load(self, dataset_name, raw=False):
         dataset_path = os.path.join(self.datasets_path, dataset_name)
+        LOGGER.info('Loading dataset %s', dataset_path)
         if raw:
             problem = dataset_name + '_problem'
             problems = [name for name in os.listdir(dataset_path) if problem in name]
@@ -47,21 +51,32 @@ class LocalManager(object):
 
         prefixes = [os.path.join(dataset_path, prefix) for prefix in prefixes]
 
-        return self.load_folder(dataset_path, prefixes)
+        data = self.load_folder(dataset_path, prefixes)
 
-    def write(self, dataset, base_dir=''):
+        return data
+
+        return {
+            folder: self.load_folder(os.path.join(dataset_path, folder))
+            for folder in folders
+        }
+
+    def write(self, dataset, base_dir='', root=True):
+
         full_base_dir = os.path.join(self.datasets_path, base_dir)
+        if root:
+            LOGGER.info('Writing dataset %s', full_base_dir)
+
         if not os.path.exists(full_base_dir):
             os.makedirs(full_base_dir)
 
         for key, value in dataset.items():
             path = os.path.join(base_dir, key)
             if isinstance(value, dict):
-                self.write(value, path)
+                self.write(value, path, False)
 
             else:
                 path = os.path.join(self.datasets_path, path)
-                print("Writing file {}".format(path))
+                LOGGER.debug("Writing file %s", path)
                 with open(path, 'wb') as f:
                     f.write(value)
 

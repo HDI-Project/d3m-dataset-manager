@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import io
+import logging
 import os
 import re
 import tarfile
 
 import boto3
+
+LOGGER = logging.getLogger(__name__)
 
 
 class S3Manager(object):
@@ -41,7 +44,7 @@ class S3Manager(object):
 
         root = dict()
         for key in files:
-            print("Getting file {} from tarfile".format(key))
+            LOGGER.debug("Getting file {} from tarfile".format(key))
             with tf.extractfile(key) as buf:
                 content = buf.read()
 
@@ -56,7 +59,7 @@ class S3Manager(object):
 
     def load(self, dataset_name, raw=False):
         key = '{}/{}.tar.gz'.format(self.root_dir, dataset_name)
-        print("Getting file {} from bucket {}".format(key, self.bucket))
+        LOGGER.info("Getting file {} from bucket {}".format(key, self.bucket))
         content = self.client.get_object(Bucket=self.bucket, Key=key)
         bytes_io = io.BytesIO(content['Body'].read())
 
@@ -69,7 +72,7 @@ class S3Manager(object):
             self.write_tar(dataset, base_dir, tf)
 
         key = '{}/{}.tar.gz'.format(self.root_dir, base_dir)
-        print("Writing file {} into S3 bucket {}".format(key, self.bucket))
+        LOGGER.info("Writing file {} into S3 bucket {}".format(key, self.bucket))
         self.client.put_object(Bucket=self.bucket, Key=key, Body=bytes_io.getvalue())
 
     def write_tar(self, dataset, base_dir, tf):
@@ -79,7 +82,7 @@ class S3Manager(object):
                 self.write_tar(value, key, tf)
 
             else:
-                print("Adding file {} into tarfile".format(key))
+                LOGGER.debug("Adding file {} into tarfile".format(key))
                 info = tarfile.TarInfo(name=key)
                 info.size = len(value)
                 bytes_io = io.BytesIO(value)
