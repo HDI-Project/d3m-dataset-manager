@@ -14,6 +14,7 @@ install_requires = [
     'pandas==0.22.0',
     'requests==2.18.4',
     'boto3==1.5.22',
+    'scikit-learn==0.21.2',
 ]
 
 setup_requires = [
@@ -55,6 +56,11 @@ setup(
     extras_require={
         'test': tests_require,
         'dev': development_requires + tests_require
+    },
+    entry_points={
+        'console_scripts': [
+            'dataset-manager=dataset_manager.cli:main'
+        ]
     },
     include_package_data=True,
     install_requires=install_requires,

@@ -5,10 +5,8 @@ import logging
 import os
 from getpass import getpass
 
-import d3m
-import local
-import s3
-from splitter import add_dataset_splits
+from dataset_manager import d3m, local, s3
+from dataset_manager.splitter import add_dataset_splits
 
 LOGGER = logging.getLogger(__name__)
 
@@ -86,7 +84,7 @@ def process_dataset(dataset_name, input_manager, output_manager, split, raw):
     output_manager.write(dataset, dataset_name)
 
 
-if __name__ == '__main__':
+def main():
     from argparse import ArgumentParser
 
     parser = ArgumentParser(description='D3M dataset manager')
@@ -154,3 +152,7 @@ if __name__ == '__main__':
 
                 else:
                     print('Dataset {} already exists. Use --force to overwrite.'.format(dataset))
+
+
+if __name__ == '__main__':
+    main()
