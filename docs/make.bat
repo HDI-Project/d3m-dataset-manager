@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=dataset_manager
+set SPHINXPROJ=d3mdm
 
 if "%1" == "" goto help
 

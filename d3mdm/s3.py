@@ -91,7 +91,7 @@ class S3Manager(object):
     def datasets(self):
         resp = self.client.list_objects(Bucket=self.bucket, Prefix=self.root_dir)
         names = []
-        regex = re.compile('{}/(.+)\.tar\.gz'.format(self.root_dir))
+        regex = re.compile(r'{}/(.+)\.tar\.gz'.format(self.root_dir))
         for entry in resp.get('Contents', []):
             key = entry['Key']
             match = regex.match(key)

@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = dataset-manager
+SPHINXPROJ    = d3mdm
 SOURCEDIR     = .
 BUILDDIR      = _build
 

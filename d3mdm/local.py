@@ -51,14 +51,7 @@ class LocalManager(object):
 
         prefixes = [os.path.join(dataset_path, prefix) for prefix in prefixes]
 
-        data = self.load_folder(dataset_path, prefixes)
-
-        return data
-
-        return {
-            folder: self.load_folder(os.path.join(dataset_path, folder))
-            for folder in folders
-        }
+        return self.load_folder(dataset_path, prefixes)
 
     def write(self, dataset, base_dir='', root=True):
 
