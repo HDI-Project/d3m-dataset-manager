@@ -1,0 +1,483 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Index &mdash; D3M Dataset Manager 0.1.1.dev0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/dai-logo-white.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> D3M Dataset Manager
+          
+
+          
+            
+            <img src="_static/dai-logo-white-200.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">D3M Dataset Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#overview">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#data-format">Data Format</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#install">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-from-pypi">Install from PyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-from-source">Install from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-for-development">Install for Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#usage">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#d3m-repository">D3M Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#s3-bucket">S3 Bucket</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#command-line-options">Command Line Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#input-and-output">Input and Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#usage-examples">Usage Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#what-s-next">What’s next?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/d3mdm.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/d3mdm.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/d3mdm.d3m.html">d3mdm.d3m module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/d3mdm.local.html">d3mdm.local module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/d3mdm.s3.html">d3mdm.s3 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/d3mdm.splitter.html">d3mdm.splitter module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/d3mdm.html#module-d3mdm">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#release-workflow">Release Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#release-candidates">Release Candidates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#development-lead">Development Lead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="history.html#v0-1-0-2019-10-09">v0.1.0 - 2019-10-09</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">D3M Dataset Manager</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Index</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/HDI-Project/D3M Dataset Manager/blob/master/docs/genindex" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.splitter.html#d3mdm.splitter.add_dataset_splits">add_dataset_splits() (in module d3mdm.splitter)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseScraper.BACKOFF_FACTOR">BACKOFF_FACTOR (d3mdm.d3m.BaseScraper attribute)</a>
+</li>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.D3MScraper.BASE_URL">BASE_URL (d3mdm.d3m.D3MScraper attribute)</a>
+
+      <ul>
+        <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.IPFSScraper.BASE_URL">(d3mdm.d3m.IPFSScraper attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseManager">BaseManager (class in d3mdm.d3m)</a>
+</li>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseScraper">BaseScraper (class in d3mdm.d3m)</a>
+</li>
+      <li><a href="api/d3mdm.splitter.html#d3mdm.splitter.build_data_splits">build_data_splits() (in module d3mdm.splitter)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.html#module-d3mdm">d3mdm (module)</a>
+</li>
+      <li><a href="api/d3mdm.d3m.html#module-d3mdm.d3m">d3mdm.d3m (module)</a>
+</li>
+      <li><a href="api/d3mdm.local.html#module-d3mdm.local">d3mdm.local (module)</a>
+</li>
+      <li><a href="api/d3mdm.s3.html#module-d3mdm.s3">d3mdm.s3 (module)</a>
+</li>
+      <li><a href="api/d3mdm.splitter.html#module-d3mdm.splitter">d3mdm.splitter (module)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.D3MManager">D3MManager (class in d3mdm.d3m)</a>
+</li>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.D3MScraper">D3MScraper (class in d3mdm.d3m)</a>
+</li>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseScraper.DATASET_TYPES">DATASET_TYPES (d3mdm.d3m.BaseScraper attribute)</a>
+</li>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseManager.datasets">datasets() (d3mdm.d3m.BaseManager method)</a>
+
+      <ul>
+        <li><a href="api/d3mdm.local.html#d3mdm.local.LocalManager.datasets">(d3mdm.local.LocalManager method)</a>
+</li>
+        <li><a href="api/d3mdm.s3.html#d3mdm.s3.S3Manager.datasets">(d3mdm.s3.S3Manager method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseManager.exists">exists() (d3mdm.d3m.BaseManager method)</a>
+
+      <ul>
+        <li><a href="api/d3mdm.local.html#d3mdm.local.LocalManager.exists">(d3mdm.local.LocalManager method)</a>
+</li>
+        <li><a href="api/d3mdm.s3.html#d3mdm.s3.S3Manager.exists">(d3mdm.s3.S3Manager method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseScraper.get_base_url">get_base_url() (d3mdm.d3m.BaseScraper method)</a>
+</li>
+      <li><a href="api/d3mdm.splitter.html#d3mdm.splitter.get_data_splits">get_data_splits() (in module d3mdm.splitter)</a>
+</li>
+      <li><a href="api/d3mdm.splitter.html#d3mdm.splitter.get_dataset_split">get_dataset_split() (in module d3mdm.splitter)</a>
+</li>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseScraper.get_datasets">get_datasets() (d3mdm.d3m.BaseScraper method)</a>
+</li>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseScraper.get_links">get_links() (d3mdm.d3m.BaseScraper static method)</a>
+</li>
+      <li><a href="api/d3mdm.splitter.html#d3mdm.splitter.get_problem_names">get_problem_names() (in module d3mdm.splitter)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseScraper.get_session">get_session() (d3mdm.d3m.BaseScraper method)</a>
+
+      <ul>
+        <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.D3MScraper.get_session">(d3mdm.d3m.D3MScraper method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/d3mdm.splitter.html#d3mdm.splitter.get_split">get_split() (in module d3mdm.splitter)</a>
+</li>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseScraper.get_sublevel">get_sublevel() (d3mdm.d3m.BaseScraper method)</a>
+</li>
+      <li><a href="api/d3mdm.splitter.html#d3mdm.splitter.get_target_names">get_target_names() (in module d3mdm.splitter)</a>
+</li>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseScraper.get_url">get_url() (d3mdm.d3m.BaseScraper method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.IPFSManager">IPFSManager (class in d3mdm.d3m)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.IPFSScraper">IPFSScraper (class in d3mdm.d3m)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.s3.html#d3mdm.s3.S3Manager.list_objects">list_objects() (d3mdm.s3.S3Manager method)</a>
+</li>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseManager.load">load() (d3mdm.d3m.BaseManager method)</a>
+
+      <ul>
+        <li><a href="api/d3mdm.local.html#d3mdm.local.LocalManager.load">(d3mdm.local.LocalManager method)</a>
+</li>
+        <li><a href="api/d3mdm.s3.html#d3mdm.s3.S3Manager.load">(d3mdm.s3.S3Manager method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.local.html#d3mdm.local.LocalManager.load_folder">load_folder() (d3mdm.local.LocalManager class method)</a>
+</li>
+      <li><a href="api/d3mdm.s3.html#d3mdm.s3.S3Manager.load_tar">load_tar() (d3mdm.s3.S3Manager method)</a>
+</li>
+      <li><a href="api/d3mdm.local.html#d3mdm.local.LocalManager">LocalManager (class in d3mdm.local)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseScraper.PATH">PATH (d3mdm.d3m.BaseScraper attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.splitter.html#d3mdm.splitter.read_csv">read_csv() (in module d3mdm.splitter)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseScraper.RETRIES">RETRIES (d3mdm.d3m.BaseScraper attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.s3.html#d3mdm.s3.S3Manager">S3Manager (class in d3mdm.s3)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseScraper.scrape_dataset">scrape_dataset() (d3mdm.d3m.BaseScraper method)</a>
+</li>
+      <li><a href="api/d3mdm.d3m.html#d3mdm.d3m.BaseScraper.STATUS_FORCELIST">STATUS_FORCELIST (d3mdm.d3m.BaseScraper attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.splitter.html#d3mdm.splitter.to_csv">to_csv() (in module d3mdm.splitter)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.local.html#d3mdm.local.LocalManager.write">write() (d3mdm.local.LocalManager method)</a>
+
+      <ul>
+        <li><a href="api/d3mdm.s3.html#d3mdm.s3.S3Manager.write">(d3mdm.s3.S3Manager method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/d3mdm.splitter.html#d3mdm.splitter.write_csv">write_csv() (in module d3mdm.splitter)</a>
+</li>
+      <li><a href="api/d3mdm.s3.html#d3mdm.s3.S3Manager.write_tar">write_tar() (d3mdm.s3.S3Manager method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

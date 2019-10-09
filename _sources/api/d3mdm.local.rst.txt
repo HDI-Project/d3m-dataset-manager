@@ -1,0 +1,7 @@
+d3mdm.local module
+==================
+
+.. automodule:: d3mdm.local
+   :members:
+   :undoc-members:
+   :show-inheritance:

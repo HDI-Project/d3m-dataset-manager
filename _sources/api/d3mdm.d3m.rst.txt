@@ -1,0 +1,7 @@
+d3mdm.d3m module
+================
+
+.. automodule:: d3mdm.d3m
+   :members:
+   :undoc-members:
+   :show-inheritance:

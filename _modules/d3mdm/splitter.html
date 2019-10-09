@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>d3mdm.splitter &mdash; D3M Dataset Manager 0.1.1.dev0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/dai-logo-white.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> D3M Dataset Manager
+          
+
+          
+            
+            <img src="../../_static/dai-logo-white-200.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">D3M Dataset Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html#overview">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#data-format">Data Format</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html#install">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#install-from-pypi">Install from PyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#install-from-source">Install from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#install-for-development">Install for Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html#usage">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../readme.html#d3m-repository">D3M Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readme.html#s3-bucket">S3 Bucket</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#command-line-options">Command Line Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../readme.html#input-and-output">Input and Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../readme.html#usage-examples">Usage Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html#what-s-next">What’s next?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/d3mdm.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/d3mdm.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/d3mdm.d3m.html">d3mdm.d3m module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/d3mdm.local.html">d3mdm.local module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/d3mdm.s3.html">d3mdm.s3 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/d3mdm.splitter.html">d3mdm.splitter module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/d3mdm.html#module-d3mdm">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#release-workflow">Release Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#release-candidates">Release Candidates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#development-lead">Development Lead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../history.html#v0-1-0-2019-10-09">v0.1.0 - 2019-10-09</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">D3M Dataset Manager</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>d3mdm.splitter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for d3mdm.splitter</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="k">import</span> <span class="n">StringIO</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
+
+<span class="n">LOGGER</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="to_csv"><a class="viewcode-back" href="../../api/d3mdm.splitter.html#d3mdm.splitter.to_csv">[docs]</a><span class="k">def</span> <span class="nf">to_csv</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">buf</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">buf</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="read_csv"><a class="viewcode-back" href="../../api/d3mdm.splitter.html#d3mdm.splitter.read_csv">[docs]</a><span class="k">def</span> <span class="nf">read_csv</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">csv_path</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">dataset</span>
+    <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="n">csv_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">level</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">()))</span></div>
+
+
+<div class="viewcode-block" id="write_csv"><a class="viewcode-back" href="../../api/d3mdm.splitter.html#d3mdm.splitter.write_csv">[docs]</a><span class="k">def</span> <span class="nf">write_csv</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">csv_path</span><span class="p">):</span>
+    <span class="n">folder</span> <span class="o">=</span> <span class="n">dataset</span>
+    <span class="n">levels</span> <span class="o">=</span> <span class="n">csv_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="n">levels</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">folder</span> <span class="o">=</span> <span class="n">folder</span><span class="p">[</span><span class="n">level</span><span class="p">]</span>
+
+    <span class="n">folder</span><span class="p">[</span><span class="n">levels</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">to_csv</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_split"><a class="viewcode-back" href="../../api/d3mdm.splitter.html#d3mdm.splitter.get_split">[docs]</a><span class="k">def</span> <span class="nf">get_split</span><span class="p">(</span><span class="n">data_splits</span><span class="p">,</span> <span class="n">learning_data</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="n">split_index</span> <span class="o">=</span> <span class="n">data_splits</span><span class="p">[</span><span class="n">data_splits</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">d3mIndex</span>
+
+    <span class="n">learning_data_indexed</span> <span class="o">=</span> <span class="n">learning_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;d3mIndex&#39;</span><span class="p">)</span>
+
+    <span class="n">split</span> <span class="o">=</span> <span class="n">learning_data_indexed</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">split_index</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">split</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="get_problem_names"><a class="viewcode-back" href="../../api/d3mdm.splitter.html#d3mdm.splitter.get_problem_names">[docs]</a><span class="k">def</span> <span class="nf">get_problem_names</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">):</span>
+    <span class="n">problem_names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_problem&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s1">&#39;_dataset&#39;</span><span class="p">:</span>
+                <span class="n">problem_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">problem_names</span></div>
+
+
+<div class="viewcode-block" id="get_target_names"><a class="viewcode-back" href="../../api/d3mdm.splitter.html#d3mdm.splitter.get_target_names">[docs]</a><span class="k">def</span> <span class="nf">get_target_names</span><span class="p">(</span><span class="n">problem_data</span><span class="p">,</span> <span class="n">learning_data</span><span class="p">,</span> <span class="n">dataset_doc</span><span class="p">):</span>
+    <span class="n">target_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">target</span><span class="p">[</span><span class="s1">&#39;colName&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">problem_data</span><span class="p">[</span><span class="s1">&#39;targets&#39;</span><span class="p">]]</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">target</span> <span class="ow">in</span> <span class="n">learning_data</span> <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">target_names</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">target_names</span>
+
+    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Target names not found in learning data&quot;</span><span class="p">)</span>
+    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Falling back to using suggestedTarget roles&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">learning_data_filter</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;resPath&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;tables/learningData.csv&#39;</span>
+
+    <span class="n">resources</span> <span class="o">=</span> <span class="n">dataset_doc</span><span class="p">[</span><span class="s1">&#39;dataResources&#39;</span><span class="p">]</span>
+    <span class="n">learning_data_resource</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;resPath&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;tables/learningData.csv&#39;</span><span class="p">,</span>
+        <span class="n">resources</span>
+    <span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">target_columns</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="s1">&#39;suggestedTarget&#39;</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">],</span>
+        <span class="n">learning_data_resource</span><span class="p">[</span><span class="s1">&#39;columns&#39;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">column</span><span class="p">[</span><span class="s1">&#39;colName&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">target_columns</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="build_data_splits"><a class="viewcode-back" href="../../api/d3mdm.splitter.html#d3mdm.splitter.build_data_splits">[docs]</a><span class="k">def</span> <span class="nf">build_data_splits</span><span class="p">(</span><span class="n">learning_data</span><span class="p">):</span>
+    <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">learning_data</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">splits</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">learning_data</span><span class="p">[</span><span class="s1">&#39;d3mIndex&#39;</span><span class="p">])</span>
+    <span class="n">splits</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;d3mIndex&#39;</span><span class="p">],</span> <span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;TRAIN&#39;</span>
+    <span class="n">splits</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;d3mIndex&#39;</span><span class="p">],</span> <span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;TEST&#39;</span>
+    <span class="n">splits</span><span class="p">[</span><span class="s1">&#39;repeat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">splits</span><span class="p">[</span><span class="s1">&#39;fold&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">return</span> <span class="n">splits</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="get_data_splits"><a class="viewcode-back" href="../../api/d3mdm.splitter.html#d3mdm.splitter.get_data_splits">[docs]</a><span class="k">def</span> <span class="nf">get_data_splits</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">dataset_problem</span><span class="p">,</span> <span class="n">learning_data</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_problem</span><span class="p">,</span> <span class="s1">&#39;dataSplits.csv&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">data_splits</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;dataSplits.csv not found in </span><span class="si">%s</span><span class="s1">. Generating one.&#39;</span><span class="p">,</span> <span class="n">dataset_problem</span><span class="p">)</span>
+        <span class="n">data_splits</span> <span class="o">=</span> <span class="n">build_data_splits</span><span class="p">(</span><span class="n">learning_data</span><span class="p">)</span>
+        <span class="n">write_csv</span><span class="p">(</span><span class="n">data_splits</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data_splits</span></div>
+
+
+<div class="viewcode-block" id="get_dataset_split"><a class="viewcode-back" href="../../api/d3mdm.splitter.html#d3mdm.splitter.get_dataset_split">[docs]</a><span class="k">def</span> <span class="nf">get_dataset_split</span><span class="p">(</span><span class="n">full_dataset</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">problem_suffix</span> <span class="o">=</span> <span class="s1">&#39;_problem&#39;</span> <span class="o">+</span> <span class="n">problem</span>
+
+    <span class="c1"># get dataframes</span>
+    <span class="n">learning_data</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="n">full_dataset</span><span class="p">,</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;_dataset/tables/learningData.csv&#39;</span><span class="p">)</span>
+    <span class="n">data_splits</span> <span class="o">=</span> <span class="n">get_data_splits</span><span class="p">(</span><span class="n">full_dataset</span><span class="p">,</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="n">problem_suffix</span><span class="p">,</span> <span class="n">learning_data</span><span class="p">)</span>
+
+    <span class="c1"># get the learningData split</span>
+    <span class="n">learning_data_split</span> <span class="o">=</span> <span class="n">get_split</span><span class="p">(</span><span class="n">data_splits</span><span class="p">,</span> <span class="n">learning_data</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+
+    <span class="c1"># NOTE: Here we use a copy instead of a deepcopy to avoid duplicating</span>
+    <span class="c1"># all the data inside the tables structure</span>
+    <span class="c1"># However, we still need to make the tables copy explicit to avoid</span>
+    <span class="c1"># Overwritting the learningData.csv in the main dataset dict.</span>
+    <span class="n">dataset_split</span> <span class="o">=</span> <span class="n">full_dataset</span><span class="p">[</span><span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;_dataset&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">dataset_split</span><span class="p">[</span><span class="s1">&#39;tables&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset_split</span><span class="p">[</span><span class="s1">&#39;tables&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">suffix</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="n">problem</span>
+
+    <span class="c1"># Prepare the datasetDoc.json</span>
+    <span class="n">dataset_doc</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">dataset_split</span><span class="p">[</span><span class="s1">&#39;datasetDoc.json&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span>
+                             <span class="n">object_pairs_hook</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">)</span>
+    <span class="n">dataset_id</span> <span class="o">=</span> <span class="n">dataset_doc</span><span class="p">[</span><span class="s1">&#39;about&#39;</span><span class="p">][</span><span class="s1">&#39;datasetID&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">suffix</span>
+    <span class="n">dataset_doc</span><span class="p">[</span><span class="s1">&#39;about&#39;</span><span class="p">][</span><span class="s1">&#39;datasetID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset_id</span>
+
+    <span class="c1"># preparo the problemDoc.json</span>
+    <span class="n">problem_split</span> <span class="o">=</span> <span class="n">full_dataset</span><span class="p">[</span><span class="n">dataset_name</span> <span class="o">+</span> <span class="n">problem_suffix</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">problem_doc</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">problem_split</span><span class="p">[</span><span class="s1">&#39;problemDoc.json&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span>
+                             <span class="n">object_pairs_hook</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">)</span>
+
+    <span class="n">problem_doc</span><span class="p">[</span><span class="s1">&#39;about&#39;</span><span class="p">][</span><span class="s1">&#39;problemID&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">suffix</span>
+    <span class="n">problem_data</span> <span class="o">=</span> <span class="n">problem_doc</span><span class="p">[</span><span class="s1">&#39;inputs&#39;</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">problem_data</span><span class="p">[</span><span class="s1">&#39;datasetID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset_id</span>
+
+    <span class="n">target_names</span> <span class="o">=</span> <span class="n">get_target_names</span><span class="p">(</span><span class="n">problem_data</span><span class="p">,</span> <span class="n">learning_data</span><span class="p">,</span> <span class="n">dataset_doc</span><span class="p">)</span>
+
+    <span class="n">dataset_split</span><span class="p">[</span><span class="s1">&#39;datasetDoc.json&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">dataset_doc</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+    <span class="n">problem_split</span><span class="p">[</span><span class="s1">&#39;problemDoc.json&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">problem_doc</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+
+    <span class="n">split</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;problem_&#39;</span> <span class="o">+</span> <span class="n">label</span><span class="p">:</span> <span class="n">problem_split</span><span class="p">,</span>
+        <span class="s1">&#39;dataset_&#39;</span> <span class="o">+</span> <span class="n">label</span><span class="p">:</span> <span class="n">dataset_split</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="n">targets</span><span class="p">:</span>
+        <span class="n">split</span><span class="p">[</span><span class="s1">&#39;targets.csv&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_csv</span><span class="p">(</span><span class="n">learning_data_split</span><span class="p">[[</span><span class="s1">&#39;d3mIndex&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">target_names</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">label</span> <span class="o">==</span> <span class="s1">&#39;TEST&#39;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">target_name</span> <span class="ow">in</span> <span class="n">target_names</span><span class="p">:</span>
+            <span class="n">learning_data_split</span><span class="p">[</span><span class="n">target_name</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">dataset_split</span><span class="p">[</span><span class="s1">&#39;tables&#39;</span><span class="p">][</span><span class="s1">&#39;learningData.csv&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_csv</span><span class="p">(</span><span class="n">learning_data_split</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">split</span></div>
+
+
+<div class="viewcode-block" id="add_dataset_splits"><a class="viewcode-back" href="../../api/d3mdm.splitter.html#d3mdm.splitter.add_dataset_splits">[docs]</a><span class="k">def</span> <span class="nf">add_dataset_splits</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">):</span>
+    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Adding dataset splits to </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">)</span>
+    <span class="n">problems</span> <span class="o">=</span> <span class="n">get_problem_names</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">problem</span> <span class="ow">in</span> <span class="n">problems</span><span class="p">:</span>
+        <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;TRAIN&#39;</span> <span class="o">+</span> <span class="n">problem</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_dataset_split</span><span class="p">(</span>
+            <span class="n">dataset</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">,</span> <span class="s1">&#39;TRAIN&#39;</span><span class="p">,</span> <span class="n">problem</span><span class="p">)</span>
+        <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;TEST&#39;</span> <span class="o">+</span> <span class="n">problem</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_dataset_split</span><span class="p">(</span>
+            <span class="n">dataset</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">,</span> <span class="s1">&#39;TEST&#39;</span><span class="p">,</span> <span class="n">problem</span><span class="p">)</span>
+        <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;SCORE&#39;</span> <span class="o">+</span> <span class="n">problem</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_dataset_split</span><span class="p">(</span>
+            <span class="n">dataset</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">,</span> <span class="s1">&#39;TEST&#39;</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

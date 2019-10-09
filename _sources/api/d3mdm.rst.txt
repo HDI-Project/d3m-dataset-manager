@@ -1,0 +1,20 @@
+d3mdm package
+=============
+
+Submodules
+----------
+
+.. toctree::
+
+   d3mdm.d3m
+   d3mdm.local
+   d3mdm.s3
+   d3mdm.splitter
+
+Module contents
+---------------
+
+.. automodule:: d3mdm
+   :members:
+   :undoc-members:
+   :show-inheritance:

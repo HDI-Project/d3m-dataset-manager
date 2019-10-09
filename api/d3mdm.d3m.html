@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>d3mdm.d3m module &mdash; D3M Dataset Manager 0.1.1.dev0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/dai-logo-white.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="d3mdm.local module" href="d3mdm.local.html" />
+    <link rel="prev" title="d3mdm package" href="d3mdm.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> D3M Dataset Manager
+          
+
+          
+            
+            <img src="../_static/dai-logo-white-200.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">D3M Dataset Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#overview">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#data-format">Data Format</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#install">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-from-pypi">Install from PyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-from-source">Install from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#install-for-development">Install for Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#usage">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#d3m-repository">D3M Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#s3-bucket">S3 Bucket</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#command-line-options">Command Line Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../readme.html#input-and-output">Input and Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../readme.html#usage-examples">Usage Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#what-s-next">What’s next?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="d3mdm.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="d3mdm.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">d3mdm.d3m module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="d3mdm.local.html">d3mdm.local module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="d3mdm.s3.html">d3mdm.s3 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="d3mdm.splitter.html">d3mdm.splitter module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="d3mdm.html#module-d3mdm">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#release-workflow">Release Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#release-candidates">Release Candidates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#development-lead">Development Lead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../history.html#v0-1-0-2019-10-09">v0.1.0 - 2019-10-09</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">D3M Dataset Manager</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="d3mdm.html">d3mdm package</a> &raquo;</li>
+        
+      <li>d3mdm.d3m module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/HDI-Project/D3M Dataset Manager/blob/master/docs/api/d3mdm.d3m.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-d3mdm.d3m">
+<span id="d3mdm-d3m-module"></span><h1>d3mdm.d3m module<a class="headerlink" href="#module-d3mdm.d3m" title="Permalink to this headline">¶</a></h1>
+<p><strong>Classes</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseManager" title="d3mdm.d3m.BaseManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseManager</span></code></a>([source, username, password, …])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseScraper" title="d3mdm.d3m.BaseScraper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseScraper</span></code></a>([skip_sublevels])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.D3MManager" title="d3mdm.d3m.D3MManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">D3MManager</span></code></a>(username, password[, skip_sublevels])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#d3mdm.d3m.D3MScraper" title="d3mdm.d3m.D3MScraper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">D3MScraper</span></code></a>(username, password[, skip_sublevels])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.IPFSManager" title="d3mdm.d3m.IPFSManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPFSManager</span></code></a>([skip_sublevels])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#d3mdm.d3m.IPFSScraper" title="d3mdm.d3m.IPFSScraper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPFSScraper</span></code></a>([skip_sublevels])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="d3mdm.d3m.BaseManager">
+<em class="property">class </em><code class="sig-prename descclassname">d3mdm.d3m.</code><code class="sig-name descname">BaseManager</code><span class="sig-paren">(</span><em class="sig-param">source='D3M'</em>, <em class="sig-param">username=None</em>, <em class="sig-param">password=None</em>, <em class="sig-param">skip_sublevels=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#BaseManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.BaseManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p><strong>Methods</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseManager.datasets" title="d3mdm.d3m.BaseManager.datasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datasets</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseManager.exists" title="d3mdm.d3m.BaseManager.exists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exists</span></code></a>(dataset_name)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseManager.load" title="d3mdm.d3m.BaseManager.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(dataset_name[, raw])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="d3mdm.d3m.BaseManager.datasets">
+<code class="sig-name descname">datasets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#BaseManager.datasets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.BaseManager.datasets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="d3mdm.d3m.BaseManager.exists">
+<code class="sig-name descname">exists</code><span class="sig-paren">(</span><em class="sig-param">dataset_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#BaseManager.exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.BaseManager.exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="d3mdm.d3m.BaseManager.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">dataset_name</em>, <em class="sig-param">raw='to_be_ignored'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#BaseManager.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.BaseManager.load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="d3mdm.d3m.BaseScraper">
+<em class="property">class </em><code class="sig-prename descclassname">d3mdm.d3m.</code><code class="sig-name descname">BaseScraper</code><span class="sig-paren">(</span><em class="sig-param">skip_sublevels=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#BaseScraper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.BaseScraper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p><strong>Attributes</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseScraper.BACKOFF_FACTOR" title="d3mdm.d3m.BaseScraper.BACKOFF_FACTOR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BACKOFF_FACTOR</span></code></a></p></td>
+<td><p>float(x) -&gt; floating point number</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseScraper.DATASET_TYPES" title="d3mdm.d3m.BaseScraper.DATASET_TYPES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DATASET_TYPES</span></code></a></p></td>
+<td><p>dict() -&gt; new empty dictionary</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseScraper.PATH" title="d3mdm.d3m.BaseScraper.PATH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PATH</span></code></a></p></td>
+<td><p>dict() -&gt; new empty dictionary</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseScraper.RETRIES" title="d3mdm.d3m.BaseScraper.RETRIES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RETRIES</span></code></a></p></td>
+<td><p>int(x=0) -&gt; integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseScraper.STATUS_FORCELIST" title="d3mdm.d3m.BaseScraper.STATUS_FORCELIST"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STATUS_FORCELIST</span></code></a></p></td>
+<td><p>tuple() -&gt; empty tuple</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseScraper.get_base_url" title="d3mdm.d3m.BaseScraper.get_base_url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_base_url</span></code></a>(dataset_name)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseScraper.get_datasets" title="d3mdm.d3m.BaseScraper.get_datasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_datasets</span></code></a>(dataset_type)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseScraper.get_links" title="d3mdm.d3m.BaseScraper.get_links"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_links</span></code></a>(soup)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseScraper.get_session" title="d3mdm.d3m.BaseScraper.get_session"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_session</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseScraper.get_sublevel" title="d3mdm.d3m.BaseScraper.get_sublevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sublevel</span></code></a>(base_path, level, sublevels)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseScraper.get_url" title="d3mdm.d3m.BaseScraper.get_url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_url</span></code></a>(url[, raw])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.BaseScraper.scrape_dataset" title="d3mdm.d3m.BaseScraper.scrape_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scrape_dataset</span></code></a>(dataset)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="d3mdm.d3m.BaseScraper.BACKOFF_FACTOR">
+<code class="sig-name descname">BACKOFF_FACTOR</code><em class="property"> = 0.5</em><a class="headerlink" href="#d3mdm.d3m.BaseScraper.BACKOFF_FACTOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="d3mdm.d3m.BaseScraper.DATASET_TYPES">
+<code class="sig-name descname">DATASET_TYPES</code><em class="property"> = {}</em><a class="headerlink" href="#d3mdm.d3m.BaseScraper.DATASET_TYPES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="d3mdm.d3m.BaseScraper.PATH">
+<code class="sig-name descname">PATH</code><em class="property"> = {'ll0': 'training_datasets/LL0/', 'll1': 'training_datasets/LL1/', 'seed': 'seed_datasets_current/'}</em><a class="headerlink" href="#d3mdm.d3m.BaseScraper.PATH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="d3mdm.d3m.BaseScraper.RETRIES">
+<code class="sig-name descname">RETRIES</code><em class="property"> = 10</em><a class="headerlink" href="#d3mdm.d3m.BaseScraper.RETRIES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="d3mdm.d3m.BaseScraper.STATUS_FORCELIST">
+<code class="sig-name descname">STATUS_FORCELIST</code><em class="property"> = (403, 404, 500, 502, 504)</em><a class="headerlink" href="#d3mdm.d3m.BaseScraper.STATUS_FORCELIST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="d3mdm.d3m.BaseScraper.get_base_url">
+<code class="sig-name descname">get_base_url</code><span class="sig-paren">(</span><em class="sig-param">dataset_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#BaseScraper.get_base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.BaseScraper.get_base_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="d3mdm.d3m.BaseScraper.get_datasets">
+<code class="sig-name descname">get_datasets</code><span class="sig-paren">(</span><em class="sig-param">dataset_type</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#BaseScraper.get_datasets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.BaseScraper.get_datasets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="d3mdm.d3m.BaseScraper.get_links">
+<em class="property">static </em><code class="sig-name descname">get_links</code><span class="sig-paren">(</span><em class="sig-param">soup</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#BaseScraper.get_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.BaseScraper.get_links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="d3mdm.d3m.BaseScraper.get_session">
+<code class="sig-name descname">get_session</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#BaseScraper.get_session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.BaseScraper.get_session" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="d3mdm.d3m.BaseScraper.get_sublevel">
+<code class="sig-name descname">get_sublevel</code><span class="sig-paren">(</span><em class="sig-param">base_path</em>, <em class="sig-param">level</em>, <em class="sig-param">sublevels</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#BaseScraper.get_sublevel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.BaseScraper.get_sublevel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="d3mdm.d3m.BaseScraper.get_url">
+<code class="sig-name descname">get_url</code><span class="sig-paren">(</span><em class="sig-param">url</em>, <em class="sig-param">raw=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#BaseScraper.get_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.BaseScraper.get_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="d3mdm.d3m.BaseScraper.scrape_dataset">
+<code class="sig-name descname">scrape_dataset</code><span class="sig-paren">(</span><em class="sig-param">dataset</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#BaseScraper.scrape_dataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.BaseScraper.scrape_dataset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="d3mdm.d3m.D3MManager">
+<em class="property">class </em><code class="sig-prename descclassname">d3mdm.d3m.</code><code class="sig-name descname">D3MManager</code><span class="sig-paren">(</span><em class="sig-param">username</em>, <em class="sig-param">password</em>, <em class="sig-param">skip_sublevels=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#D3MManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.D3MManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#d3mdm.d3m.BaseManager" title="d3mdm.d3m.BaseManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">d3mdm.d3m.BaseManager</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="d3mdm.d3m.D3MScraper">
+<em class="property">class </em><code class="sig-prename descclassname">d3mdm.d3m.</code><code class="sig-name descname">D3MScraper</code><span class="sig-paren">(</span><em class="sig-param">username</em>, <em class="sig-param">password</em>, <em class="sig-param">skip_sublevels=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#D3MScraper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.D3MScraper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#d3mdm.d3m.BaseScraper" title="d3mdm.d3m.BaseScraper"><code class="xref py py-class docutils literal notranslate"><span class="pre">d3mdm.d3m.BaseScraper</span></code></a></p>
+<p><strong>Attributes</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.D3MScraper.BASE_URL" title="d3mdm.d3m.D3MScraper.BASE_URL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BASE_URL</span></code></a></p></td>
+<td><p>str(object=’’) -&gt; str</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.D3MScraper.get_session" title="d3mdm.d3m.D3MScraper.get_session"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_session</span></code></a>(username, password)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="d3mdm.d3m.D3MScraper.BASE_URL">
+<code class="sig-name descname">BASE_URL</code><em class="property"> = 'https://datadrivendiscovery.org/data/'</em><a class="headerlink" href="#d3mdm.d3m.D3MScraper.BASE_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="d3mdm.d3m.D3MScraper.get_session">
+<code class="sig-name descname">get_session</code><span class="sig-paren">(</span><em class="sig-param">username</em>, <em class="sig-param">password</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#D3MScraper.get_session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.D3MScraper.get_session" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="d3mdm.d3m.IPFSManager">
+<em class="property">class </em><code class="sig-prename descclassname">d3mdm.d3m.</code><code class="sig-name descname">IPFSManager</code><span class="sig-paren">(</span><em class="sig-param">skip_sublevels=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#IPFSManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.IPFSManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#d3mdm.d3m.BaseManager" title="d3mdm.d3m.BaseManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">d3mdm.d3m.BaseManager</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="d3mdm.d3m.IPFSScraper">
+<em class="property">class </em><code class="sig-prename descclassname">d3mdm.d3m.</code><code class="sig-name descname">IPFSScraper</code><span class="sig-paren">(</span><em class="sig-param">skip_sublevels=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/d3mdm/d3m.html#IPFSScraper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#d3mdm.d3m.IPFSScraper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#d3mdm.d3m.BaseScraper" title="d3mdm.d3m.BaseScraper"><code class="xref py py-class docutils literal notranslate"><span class="pre">d3mdm.d3m.BaseScraper</span></code></a></p>
+<p><strong>Attributes</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#d3mdm.d3m.IPFSScraper.BASE_URL" title="d3mdm.d3m.IPFSScraper.BASE_URL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BASE_URL</span></code></a></p></td>
+<td><p>str(object=’’) -&gt; str</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="d3mdm.d3m.IPFSScraper.BASE_URL">
+<code class="sig-name descname">BASE_URL</code><em class="property"> = 'https://gateway.ipfs.io/ipfs/QmWsbzjogZTY3Laf8SErQ9azfuY7BWicBmQjP9SxwvtqTz/'</em><a class="headerlink" href="#d3mdm.d3m.IPFSScraper.BASE_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="d3mdm.local.html" class="btn btn-neutral float-right" title="d3mdm.local module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="d3mdm.html" class="btn btn-neutral float-left" title="d3mdm package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

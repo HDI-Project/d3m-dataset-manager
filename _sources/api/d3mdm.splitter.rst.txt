@@ -1,0 +1,7 @@
+d3mdm.splitter module
+=====================
+
+.. automodule:: d3mdm.splitter
+   :members:
+   :undoc-members:
+   :show-inheritance:

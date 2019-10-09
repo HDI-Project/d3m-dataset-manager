@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>D3M Dataset Manager &mdash; D3M Dataset Manager 0.1.1.dev0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/dai-logo-white.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="D3M Dataset Manager" href="readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> D3M Dataset Manager
+          
+
+          
+            
+            <img src="_static/dai-logo-white-200.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">D3M Dataset Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#overview">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#data-format">Data Format</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#install">Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-from-pypi">Install from PyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-from-source">Install from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#install-for-development">Install for Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#usage">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#d3m-repository">D3M Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#s3-bucket">S3 Bucket</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#command-line-options">Command Line Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="readme.html#input-and-output">Input and Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="readme.html#usage-examples">Usage Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="readme.html#what-s-next">What’s next?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/d3mdm.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/d3mdm.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/d3mdm.d3m.html">d3mdm.d3m module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/d3mdm.local.html">d3mdm.local module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/d3mdm.s3.html">d3mdm.s3 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/d3mdm.splitter.html">d3mdm.splitter module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/d3mdm.html#module-d3mdm">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#types-of-contributions">Types of Contributions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#report-bugs">Report Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#fix-bugs">Fix Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#implement-features">Implement Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#write-documentation">Write Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#submit-feedback">Submit Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#get-started">Get Started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#unit-testing-guidelines">Unit Testing Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#tips">Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#release-workflow">Release Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#release-candidates">Release Candidates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#development-lead">Development Lead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authors.html#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="history.html#v0-1-0-2019-10-09">v0.1.0 - 2019-10-09</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">D3M Dataset Manager</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>D3M Dataset Manager</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/HDI-Project/D3M Dataset Manager/blob/master/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p align="left">
+<img width=15% src="https://dai.lids.mit.edu/wp-content/uploads/2018/06/Logo_DAI_highres.png" alt=“DAI-Lab” />
+<i>An open source project from Data to AI Lab at MIT.</i>
+</p><a class="reference external image-reference" href="https://pypi.python.org/pypi/d3m-dataset-manager"><img alt="PyPI Shield" src="https://img.shields.io/pypi/v/d3m-dataset-manager.svg" /></a>
+<a class="reference external image-reference" href="https://pepy.tech/project/d3m-dataset-manager"><img alt="Downloads" src="https://pepy.tech/badge/d3m-dataset-manager" /></a>
+<a class="reference external image-reference" href="https://travis-ci.org/HDI-Project/d3m-dataset-manager"><img alt="Travis CI Shield" src="https://travis-ci.org/HDI-Project/d3m-dataset-manager.svg?branch=master" /></a>
+<p><span class="raw-html-m2r"><!--[![Coverage Status](https://codecov.io/gh/HDI-Project/d3m-dataset-manager/branch/master/graph/badge.svg)](https://codecov.io/gh/HDI-Project/d3m-dataset-manager)--></span></p>
+<div class="section" id="d3m-dataset-manager">
+<h1>D3M Dataset Manager<a class="headerlink" href="#d3m-dataset-manager" title="Permalink to this headline">¶</a></h1>
+<p>The D3M Dataset Manager is a command line tool and python package to generate and manage
+datasets in the D3M format.</p>
+<ul class="simple">
+<li><p>Documentation: <a class="reference external" href="https://HDI-Project.github.io/d3m-dataset-manager">https://HDI-Project.github.io/d3m-dataset-manager</a></p></li>
+<li><p>Homepage: <a class="reference external" href="https://github.com/HDI-Project/d3m-dataset-manager">https://github.com/HDI-Project/d3m-dataset-manager</a></p></li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>The D3M Dataset Manager is a command line tool and python package to generate and manage
+datasets in the D3M format.</p>
+<p>It supports:</p>
+<ul class="simple">
+<li><p>downloading datasets from the D3M web repository or from S3 buckets</p></li>
+<li><p>uploading datasets to S3 buckets</p></li>
+<li><p>loading or saving datasets to local filesystem</p></li>
+<li><p>spliting datasets into TRAIN, TEST and SCORE subsets following the dataSplits.csv indexes</p></li>
+</ul>
+<div class="section" id="data-format">
+<h2>Data Format<a class="headerlink" href="#data-format" title="Permalink to this headline">¶</a></h2>
+<p>The D3M Dataset Schema, developed by MIT Lincoln Labs Laboratory for the DARPA’s Data Driven
+Discovery of Models Program, requires the data to be in plainly readable formats such as CSV files
+or JPG images, and to be set within a folder hierarchy alongside some metadata specifications
+in JSON format, which include information about all the data contained, as well as the problem
+that we are trying to solve.</p>
+<p>For more details about the schema and about how to format your data to be compliant with it,
+please have a look at the <a class="reference external" href="https://github.com/mitll/d3m-schema/tree/master/documentation">Schema Documentation</a></p>
+</div>
+</div>
+<div class="section" id="install">
+<h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-from-pypi">
+<h2>Install from PyPI<a class="headerlink" href="#install-from-pypi" title="Permalink to this headline">¶</a></h2>
+<p>The easiest and recommended way to install the <strong>D3M Dataset Manager</strong> is using
+<a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install d3m-dataset-manager
+</pre></div>
+</div>
+<p>This will pull and install the latest stable release from <a class="reference external" href="https://pypi.org/">PyPI</a>.</p>
+</div>
+<div class="section" id="install-from-source">
+<h2>Install from source<a class="headerlink" href="#install-from-source" title="Permalink to this headline">¶</a></h2>
+<p>If you want to install the project from its sources, you can clone the repository and install it
+by running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> on the <code class="docutils literal notranslate"><span class="pre">stable</span></code> branch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:HDI-Project/d3m-dataset-manager.git
+<span class="nb">cd</span> d3m-dataset-manager
+git checkout stable
+make install
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-for-development">
+<h2>Install for Development<a class="headerlink" href="#install-for-development" title="Permalink to this headline">¶</a></h2>
+<p>If you want to contribute to the project, a few more steps are required to make the project ready
+for development.</p>
+<p>Please head to the <a class="reference external" href="https://HDI-Project.github.io/d3m-dataset-manager/contributing.html#get-started">Contributing Guide</a>
+for more details about this process.</p>
+</div>
+</div>
+<div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="d3m-repository">
+<h3>D3M Repository<a class="headerlink" href="#d3m-repository" title="Permalink to this headline">¶</a></h3>
+<p>In order to interact with the D3M repository you will need the user and the password
+user to log into <a class="reference external" href="https://datadrivendiscovery.org/data">https://datadrivendiscovery.org/data</a></p>
+</div>
+<div class="section" id="s3-bucket">
+<h3>S3 Bucket<a class="headerlink" href="#s3-bucket" title="Permalink to this headline">¶</a></h3>
+<p>In order to interact with the S3 buckets, you will need to configure your S3 access
+following the instructions from <a class="reference external" href="http://boto3.readthedocs.io/en/latest/guide/quickstart.html">http://boto3.readthedocs.io/en/latest/guide/quickstart.html</a></p>
+<p>In most cases, it will be enough to create the file <code class="docutils literal notranslate"><span class="pre">~/.aws/credentials:</span></code>
+with the following contents:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="k">default</span><span class="p">]</span>
+<span class="n">aws_access_key_id</span> <span class="o">=</span> <span class="n">YOUR_ACCESS_KEY</span>
+<span class="n">aws_secret_access_key</span> <span class="o">=</span> <span class="n">YOUR_SECRET_KEY</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="command-line-options">
+<h2>Command Line Options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">¶</a></h2>
+<p>The main element of the <strong>D3M Dataset Manager</strong> is the commadn <code class="docutils literal notranslate"><span class="pre">d3mdm</span></code>, which will be available
+in your command line after installing the package.</p>
+<p>This command supports the following options:</p>
+<ul class="simple">
+<li><p><strong>-i, –input</strong> - D3M website, IPFS, S3 bucket or local folder.</p></li>
+<li><p><strong>-o, –output</strong> - S3 bucket or local folder.</p></li>
+<li><p><strong>-l, –list</strong> - List all available datasets in the indicated input.</p></li>
+<li><p><strong>-a, –all</strong> - Get and process all available datasets in the indicated input.</p></li>
+<li><p><strong>-s, –split</strong> - Split the dataset using the dataSplits.csv indexes.</p></li>
+<li><p><strong>-r, –raw</strong> - Do not download the splitted subsets. <code class="docutils literal notranslate"><span class="pre">-s</span></code> option implicitly enables this one.</p></li>
+<li><p><strong>-f, –force</strong> - Overwrite any existing datasets. If not enabled, existing datasets will be skipped.</p></li>
+<li><p><strong>-d, –dry-run</strong> - Do not perform any real action. Only list them.</p></li>
+<li><p><strong>dataset names</strong> - Name of the datasets o download. The <code class="docutils literal notranslate"><span class="pre">-a</span></code> option overrides them.</p></li>
+</ul>
+<div class="section" id="input-and-output">
+<h3>Input and Output<a class="headerlink" href="#input-and-output" title="Permalink to this headline">¶</a></h3>
+<p>The Input and Output options implicitely point at different locations depending on the format:</p>
+<ul class="simple">
+<li><p><strong>D3M</strong>: <code class="docutils literal notranslate"><span class="pre">d3m:username:passsword</span></code>: password can be omitted, as well as username. Accepted only as Input.
+If omitted, the user will be asked to insert them later on.</p></li>
+<li><p><strong>IPFS</strong>: <code class="docutils literal notranslate"><span class="pre">ipfs</span></code>: The datasets will be downloaded using an IPFS mirror of the D3M repository.</p></li>
+<li><p><strong>S3</strong>: <code class="docutils literal notranslate"><span class="pre">s3://bucket-name/folder</span></code>: The datasets will be stored as a <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> archive. If
+<code class="docutils literal notranslate"><span class="pre">folder</span></code> is not specified it defaults to <code class="docutils literal notranslate"><span class="pre">datasets</span></code>.</p></li>
+<li><p><strong>Local filesystem</strong>: <code class="docutils literal notranslate"><span class="pre">local/filesystem/path</span></code>: The path must exist, otherwise it raises an error.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="usage-examples">
+<h2>Usage Examples<a class="headerlink" href="#usage-examples" title="Permalink to this headline">¶</a></h2>
+<p>Download all datasets from D3M and store them as they are into S3 bucket named <code class="docutils literal notranslate"><span class="pre">d3m-data-dai</span></code>.
+This will skip existing datasets.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">d3m</span><span class="o">-</span><span class="n">dataset</span><span class="o">-</span><span class="n">manager</span> <span class="o">-</span><span class="n">i</span> <span class="n">d3m</span><span class="p">:</span><span class="n">a_username</span><span class="p">:</span><span class="n">a_password</span> <span class="o">-</span><span class="n">o</span> <span class="n">s3</span><span class="p">:</span><span class="n">d3m</span><span class="o">-</span><span class="k">data</span><span class="o">-</span><span class="n">dai</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+<p>Download all datasets from the IPFS mirror, split them and store them in a local folder
+<code class="docutils literal notranslate"><span class="pre">datasets</span></code>, overwriting any existing data.</p>
+<p>This will prompt the user for the d3m password.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">d3m</span><span class="o">-</span><span class="n">dataset</span><span class="o">-</span><span class="n">manager</span> <span class="o">-</span><span class="n">i</span> <span class="n">ipfs</span> <span class="o">-</span><span class="n">o</span> <span class="n">datasets</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="n">f</span>
+</pre></div>
+</div>
+<p>Download the datasets <code class="docutils literal notranslate"><span class="pre">185_baseball</span></code> and <code class="docutils literal notranslate"><span class="pre">32_wikiqa</span></code> from S3 bucket <code class="docutils literal notranslate"><span class="pre">bucket-name</span></code>
+into local folder <code class="docutils literal notranslate"><span class="pre">data/datasets</span></code>. Overwrite the existing data.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">d3m</span><span class="o">-</span><span class="n">dataset</span><span class="o">-</span><span class="n">manager</span> <span class="o">-</span><span class="n">i</span> <span class="n">s3</span><span class="p">:</span><span class="o">//</span><span class="n">bucket</span><span class="o">-</span><span class="n">name</span> <span class="o">-</span><span class="n">o</span> <span class="k">data</span><span class="o">/</span><span class="n">datasets</span> <span class="o">-</span><span class="n">f</span> <span class="mi">185</span><span class="n">_baseball</span> <span class="mi">32</span><span class="n">_wikiqa</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="what-s-next">
+<h1>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h1>
+<p>For more details about <strong>D3M Dataset Manager</strong> and all its possibilities
+and features, please check the <a class="reference external" href="https://HDI-Project.github.io/d3m-dataset-manager/">documentation site</a>.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="readme.html" class="btn btn-neutral float-right" title="D3M Dataset Manager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, MIT Data To AI Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
