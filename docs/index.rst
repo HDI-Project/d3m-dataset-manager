@@ -1,14 +1,16 @@
-Welcome to Dataset Manager's documentation!
-======================================
+.. include:: readme.rst
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
-   :caption: Contents:
 
-   readme
-   installation
-   usage
-   modules
+   Overview <readme>
+
+.. toctree::
+   :caption: Resources
+   :hidden:
+
+   API Reference <api/d3mdm>
    contributing
    authors
    history

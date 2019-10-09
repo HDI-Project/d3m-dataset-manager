@@ -5,8 +5,8 @@ import logging
 import os
 from getpass import getpass
 
-from dataset_manager import d3m, local, s3
-from dataset_manager.splitter import add_dataset_splits
+from d3mdm import d3m, local, s3
+from d3mdm.splitter import add_dataset_splits
 
 LOGGER = logging.getLogger(__name__)
 

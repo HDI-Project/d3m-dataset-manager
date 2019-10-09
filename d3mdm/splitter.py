@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import os
 import json
 import logging
-from io import StringIO
+import os
 from collections import OrderedDict
+from io import StringIO
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -34,6 +34,7 @@ def write_csv(df, dataset, csv_path):
 
     folder[levels[-1]] = to_csv(df)
 
+
 def get_split(data_splits, learning_data, label):
     split_index = data_splits[data_splits['type'] == label].d3mIndex
 
@@ -41,12 +42,6 @@ def get_split(data_splits, learning_data, label):
 
     split = learning_data_indexed.loc[split_index]
     return split.reset_index()
-
-
-def to_csv(df):
-    buf = StringIO()
-    df.to_csv(buf, index=None)
-    return buf.getvalue().encode()
 
 
 def get_problem_names(dataset, dataset_name):
@@ -69,7 +64,7 @@ def get_target_names(problem_data, learning_data, dataset_doc):
     LOGGER.warning("Falling back to using suggestedTarget roles")
 
     def learning_data_filter(d):
-        return d['resPath'] ==  'tables/learningData.csv'
+        return d['resPath'] == 'tables/learningData.csv'
 
     resources = dataset_doc['dataResources']
     learning_data_resource = list(filter(
@@ -128,7 +123,7 @@ def get_dataset_split(full_dataset, dataset_name, label, problem, targets=False)
 
     # Prepare the datasetDoc.json
     dataset_doc = json.loads(dataset_split['datasetDoc.json'].decode(),
-                         object_pairs_hook=OrderedDict)
+                             object_pairs_hook=OrderedDict)
     dataset_id = dataset_doc['about']['datasetID'] + suffix
     dataset_doc['about']['datasetID'] = dataset_id
 
